@@ -70,8 +70,8 @@
          var time_end_date = scheduler.date.convert_to_utc(ev.end_date);
          var common=scheduler.date.date_to_str("%m/%d/%Y %H:%i");
 
-        var new_start_date = scheduler.date.add(time_start_date,0, 'hour');
-        var new_end_date = scheduler.date.add(time_end_date,0, 'hour');
+        var new_start_date = scheduler.date.add(time_start_date,8, 'hour');
+        var new_end_date = scheduler.date.add(time_end_date,8, 'hour');
 
         var start_date =  common(new_start_date);
         var end_date = common(new_end_date);
@@ -83,6 +83,7 @@
             success:function (data) {
                 if(data !=1 ){
                     alert("添加失败！");
+                    scheduler.load("../getSchdule","json");
                 }
             }
         })
@@ -96,8 +97,8 @@
         var time_start_date = scheduler.date.convert_to_utc(ev.start_date);
         var time_end_date = scheduler.date.convert_to_utc(ev.end_date);
         var common=scheduler.date.date_to_str("%m/%d/%Y %H:%i");
-        var new_start_date = scheduler.date.add(time_start_date,0, 'hour');
-        var new_end_date = scheduler.date.add(time_end_date,0, 'hour');
+        var new_start_date = scheduler.date.add(time_start_date,8, 'hour');
+        var new_end_date = scheduler.date.add(time_end_date,8, 'hour');
         var start_date =  common(new_start_date);
         var end_date = common(new_end_date);
         $.ajax({
@@ -108,6 +109,7 @@
             success:function (data) {
                 if(data != 1){
                     alert("更新失败！");
+                    scheduler.load("../getSchdule","json");
                 }
             }
         })
@@ -122,7 +124,7 @@
             data:{id:id},
             success:function (data) {
                 if(data !=1 ){
-                    alert("删除失败！");
+                    scheduler.load("../getSchdule","json");
                 }
             }
         })
